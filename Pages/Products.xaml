@@ -1,0 +1,98 @@
+﻿<Page x:Class="WPFModernVerticalMenu.Pages.Products"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFModernVerticalMenu.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Products">
+
+    <Grid>
+        <Border CornerRadius="5" Background="#FF6365FF">
+            <TextBlock Text="Каталог" 
+                   FontSize="25" 
+                   Foreground="White" 
+                   FontWeight="Bold"
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="Center"/>
+        </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="1.3*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox Grid.Column="0" Name="listCategory" Margin="5" Background="{x:Null}" BorderBrush="Aqua" SelectionChanged="listCategory_SelectionChanged">
+
+                </ListBox>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <!--Лист товаров-->
+                    <ListBox Grid.Row="0" Name="listProduct" Margin="10" Background="{x:Null}" BorderBrush="Aqua">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path = Name}"/>
+                                    <Button Content="Купить" Click="Button_Click_1"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <!--Кнопка покупки-->
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Row="1">
+                        <TextBlock Text="Баланс: " Grid.Row="1" Name="wallet" VerticalAlignment="Center" FontSize="25"/>
+                        <TextBlock Text="Итого: " Grid.Row="1" Name="limit" VerticalAlignment="Center" FontSize="25"/>
+                    </StackPanel>
+
+                    <Button
+                    Content="Оформить"
+                    Grid.Row="1"
+                    Margin="5"
+                    Width="150"
+                    HorizontalAlignment="Right"
+                    Click="Button_Click"/>
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+        <!--<Border VerticalAlignment="Center" HorizontalAlignment="Left">
+            <ListBox x:Name="listCategory" Background="{x:Null}">
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/bmw.png" Width="50" Height="50"/>
+                        <TextBlock Text="BMW" VerticalAlignment="Center" FontSize="15" FontWeight="Bold"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/mercedes.png" Width="50" Height="50"/>
+                        <TextBlock Text="MB" VerticalAlignment="Center" FontSize="15" FontWeight="Bold"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/audi.png" Width="50" Height="50"/>
+                        <TextBlock Text="AUDI" VerticalAlignment="Center" FontSize="15" FontWeight="Bold"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/ford.png" Width="50" Height="50"/>
+                        <TextBlock Text="FORD" VerticalAlignment="Center" FontSize="15" FontWeight="Bold"/>
+                    </StackPanel>
+                </ListBoxItem>
+            </ListBox>
+        </Border>-->
+        
+    </Grid>
+</Page>
